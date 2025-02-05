@@ -26,7 +26,7 @@ int main(){
         }
         else if(choice == 4){
             printf("--------------------------------------------------------------------------------\n");
-            printf("\nThank You!! \n Made by Shruti Rai");
+            printf("\nThank You!! \nMade by Shruti Rai");
         }
         else{
             printf("Invalid choice!!");
