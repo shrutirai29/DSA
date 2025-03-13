@@ -2,6 +2,7 @@
 #include<stdlib.h>
 #include<string.h>
 
+//structure of a node
 struct node {
     int data;
     struct node *next;
@@ -9,43 +10,46 @@ struct node {
 
 struct node *head = NULL;
 
+//function to insert at beginning
 void insertAtBeginning(){
-    struct node *newNode = (struct node*)malloc(sizeof(struct node));
+    struct node *newNode = (struct node*)malloc(sizeof(struct node));     //creation of node
     printf("Enter the data\n");
     scanf("%d", &newNode->data);
-    newNode->next = head;
-    head = newNode;
+    newNode->next = head;                                                //old data of head is given to the next of newNode
+    head = newNode;                                                     //newNode is the new head
 }
 
+//function to insert at end
 void insertAtEnd(){
-    struct node *newNode = (struct node*)malloc(sizeof(struct node));
+    struct node *newNode = (struct node*)malloc(sizeof(struct node));    //creation of node
     printf("Enter the data\n");
     scanf("%d", &newNode->data);
-    newNode->next = NULL;
-    if(head == NULL){
-        head = newNode;
+    newNode->next = NULL;                                               //as it is the last node
+    if(head == NULL){                                                   
+        head = newNode;                                                // if no head is present then newNode = head = last
     }else{
         struct node *temp = head;
         while(temp->next != NULL){
-            temp = temp->next;
+            temp = temp->next;                                        //searching for last node
         }
         temp->next = newNode;
     }
 }
 
+//function to insert at ramdom position using a counter position
 void insertAtRandom(){
-    struct node *newNode = (struct node*)malloc(sizeof(struct node));
+    struct node *newNode = (struct node*)malloc(sizeof(struct node));   //creation of node
     printf("Enter the data\n");
     scanf("%d", &newNode->data);
     newNode->next = NULL;
-    if(head == NULL){
+    if(head == NULL){                                                  // if no head is present then newNode = head = last = node at ramdom position
         head = newNode;
     }else{
         struct node *temp = head;
         int pos;
         printf("Enter the position\n");
         scanf("%d", &pos);
-        for(int i=1; i<pos-1; i++){
+        for(int i=1; i<pos-1; i++){                                  //going to the required position
             temp = temp->next;
         }
         newNode->next = temp->next;
@@ -53,17 +57,18 @@ void insertAtRandom(){
     }
 }
 
+//function to insert at random position (ascending order insetion)
 void insertAtRandom2(){
-    struct node *newNode = (struct node*)malloc(sizeof(struct node));
+    struct node *newNode = (struct node*)malloc(sizeof(struct node));   // creation of node
     printf("Enter the data\n");
     scanf("%d", &newNode->data);
     newNode->next = NULL;
     if(head == NULL){
-        head = newNode;
+        head = newNode;                                               //if no head is present then newNode = head = last = node at ramdom position
     }else{
         struct node *temp = head;
         struct node *prev = NULL;
-        while(newNode->data > temp->data){
+        while(newNode->data > temp->data){                           //searching for the node with data less than data of new node
             prev = temp;
             temp = temp->next;
         }
@@ -71,6 +76,8 @@ void insertAtRandom2(){
         prev->next = newNode;
     }
 }
+
+//function to display data
 void display(){
     struct node *temp = head;
     while(temp != NULL){
@@ -80,6 +87,7 @@ void display(){
     printf("\n");
 }
 
+//
 void deleteAtBeginning(){
     if(head == NULL){
         printf("List is empty\n");
