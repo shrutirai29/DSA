@@ -20,6 +20,11 @@ int main() {
     sum += *(ptr + i);
   }
 
+  printf("Address of elements are: ");
+  for(i = 0; i < n; ++i) {
+    printf("%d ", ptr + i);
+  }
+
   printf("Sum = %d", sum);
   
   free(ptr);

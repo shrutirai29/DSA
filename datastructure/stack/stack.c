@@ -10,9 +10,9 @@ void change();
 int main() {
     printf("Welcome to a stack program!!");
     int choice;
+    printf("\n1.Push \n2.Pop \n3.Display \n4.Peep \n5.Change \n6.Close \n");
     do{
-        printf("\n1.Push \n2.Pop \n3.Display \n4.Peep \n5.Change \n6.Close \n");
-        printf("Enter the choice: ");
+        printf("\nEnter the choice: ");
         scanf("%d", &choice);
         if(choice == 1){
             push();

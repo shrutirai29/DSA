@@ -12,7 +12,7 @@ int main(){
     int choice;
     printf("\n1. Enqueue \n2. Dequeue\n3. Display\n4. Exit \n");
     do{
-        printf("What do you want to do: ");
+        printf("\nWhat do you want to do: ");
         scanf("%d", &choice);
         if(choice == 1){
             enqueue();
@@ -38,7 +38,7 @@ int main(){
 void enqueue(){
     int element;
     if(rear == max_size - 1){
-        printf("Stack is full!!");
+        printf("Queue is full!!");
     }else{
         if(front == -1){
             front = 0;

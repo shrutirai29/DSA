@@ -25,7 +25,6 @@ int main(){
             display();
         }
         else if(choice == 4){
-            printf("--------------------------------------------------------------------------------\n");
             printf("\nThank You!! \nMade by Shruti Rai");
         }
         else{
@@ -74,7 +73,7 @@ void dequeue(){
 }
 
 void display(){
-    if(front == -1 || front > rear){
+    if(front == -1){
         printf("The Queue is empty!!\n");
     }else{
         printf("The elements in the queue are: \n");

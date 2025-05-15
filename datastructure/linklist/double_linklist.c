@@ -20,6 +20,7 @@ void insertAtBeginning(){
         head->prev = newNode;
     }
     head = newNode;
+    printf("Data inserted successfully\n");
 }
 
 void insertAtEnd(){
@@ -38,6 +39,7 @@ void insertAtEnd(){
         temp->next = newNode;
         newNode->prev = temp;
     }
+    printf("Data inserted successfully\n");
 }
 
 void insertAtRandom(){
@@ -59,30 +61,7 @@ void insertAtRandom(){
         newNode->prev = temp;
         temp->next = newNode;
     }
-}
-
-void insertAtRandom2(){
-    struct node *newNode = (struct node*)malloc(sizeof(struct node));
-    printf("Enter the data\n");
-    scanf("%d", &newNode->data);
-    newNode->next = NULL;
-    if(head == NULL){
-        head = newNode;
-    }else{
-        struct node *temp = head;
-        struct node *prev = NULL;
-        int pos;
-        printf("Enter the position\n");
-        scanf("%d", &pos);
-        for(int i=1; i<pos; i++){
-            prev = temp;
-            temp = temp->next;
-        }
-        newNode->next = prev->next;
-        prev->next = newNode;
-        newNode->prev = prev;
-        temp->prev = newNode;
-    }
+    printf("Data inserted successfully\n");
 }
 
 void display(){
@@ -102,6 +81,7 @@ void deleteAtBeginning(){
         head = head->next;
         head->prev = NULL;
         free(temp);
+        printf("Data deleted successfully\n");
     }
 }
 
@@ -117,6 +97,7 @@ void deleteAtEnd(){
         }
         prev->next = NULL;
         free(temp);
+        printf("Data deleted successfully\n");
     }
 }
 
@@ -136,21 +117,21 @@ void deleteAtRandom(){
         prev->next = temp->next;
         temp->next->prev = prev;
         free(temp);
+        printf("Data deleted successfully\n");
     }
 }
 
 int main(){
     int choice;
-    while(1){
+    do{
         printf("1. Insert at beginning\n");
         printf("2. Insert at end\n");
         printf("3. Insert at random\n");
-        printf("4. Insert at random2\n");
-        printf("5. Display\n");
-        printf("6. Delete at beginning\n");
-        printf("7. Delete at end\n");
-        printf("8. Delete at random\n");
-        printf("9. Exit\n");
+        printf("4. Display\n");
+        printf("5. Delete at beginning\n");
+        printf("6. Delete at end\n");
+        printf("7. Delete at random\n");
+        printf("8. Exit\n");
         printf("Enter your choice\n");
         scanf("%d", &choice);
         switch(choice){
@@ -164,25 +145,23 @@ int main(){
                 insertAtRandom();
                 break;
             case 4:
-                insertAtRandom2();
-                break;
-            case 5:
                 display();
                 break;
-            case 6:
+            case 5:
                 deleteAtBeginning();
                 break;
-            case 7:
+            case 6:
                 deleteAtEnd();
                 break;
-            case 8:
+            case 7:
                 deleteAtRandom();
                 break;
-            case 9:
+            case 8:
                 exit(0);
             default:
                 printf("Invalid choice\n");
         }
     }
+    while(choice != 8);
     return 0;
 }
